@@ -17,6 +17,11 @@ export const loginRequest ={
 }
 
 export const myService = {
-    myWeatherEndpoint: "https://localhost:7135/WeatherForecast",
-    myPortfolioEndpoint: "https://localhost:7135/portfolios"
+    myWeatherEndpoint: window.location.href.indexOf("localhost") >= 0 ? 
+                            "https://localhost:7135/WeatherForecast" :
+                            "https://opastyrawebapi-appservice.azurewebsites.net/WeatherForecast"
+                            ,
+    myPortfolioEndpoint: window.location.href.indexOf("localhost") >= 0 ? 
+                            "https://localhost:7135/portfolios" :
+                            "https://opastyrawebapi-appservice.azurewebsites.net/portfolios"
 }
