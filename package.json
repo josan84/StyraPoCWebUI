@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://josan84.github.io",
+  "homepage": "https://josan84.github.io/StyraPoCWebUI/",
   "dependencies": {
     "@azure/msal-browser": "^2.24.0",
     "@azure/msal-react": "^1.4.0",
