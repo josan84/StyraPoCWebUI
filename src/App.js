@@ -3,7 +3,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import { loginRequest, myService } from "./auth/msalConfig";
 import { useMsal } from "@azure/msal-react";
-// test
+
 export default function App() {
   const { instance, accounts } = useMsal();
 
