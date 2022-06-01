@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/StyraPoCWebUI/static/css/main.0b4e74b4.css",
-    "main.js": "/StyraPoCWebUI/static/js/main.f244290f.js",
+    "main.js": "/StyraPoCWebUI/static/js/main.5737f497.js",
     "index.html": "/StyraPoCWebUI/index.html",
     "main.0b4e74b4.css.map": "/StyraPoCWebUI/static/css/main.0b4e74b4.css.map",
-    "main.f244290f.js.map": "/StyraPoCWebUI/static/js/main.f244290f.js.map"
+    "main.5737f497.js.map": "/StyraPoCWebUI/static/js/main.5737f497.js.map"
   },
   "entrypoints": [
     "static/css/main.0b4e74b4.css",
-    "static/js/main.f244290f.js"
+    "static/js/main.5737f497.js"
   ]
 }
