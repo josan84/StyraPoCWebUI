@@ -29,7 +29,7 @@ jobs:
     - run: npm ci
     - run: CI='' npm run build --if-present
     - name: deploy to gh-pages
-      uses: josan84/StyraPoCWebUI
+      uses: josan84/StyraPoCWebUI@master
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         publish_dir: ./build
