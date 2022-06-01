@@ -61,7 +61,7 @@ export default function App() {
        <div class="row align-items-start">
 
       <Row xs={1} md={4} className="g-4">
-{/*         <Col>
+        <Col>
           <Card border="primary" style={{ width: "18rem" }}>
             <Card.Header>Weather</Card.Header>
             <Card.Body>
@@ -74,7 +74,7 @@ export default function App() {
               ></Button>
             </Card.Body>
           </Card>
-        </Col> */}
+        </Col>
 
         <Col>
           <Card border="primary" style={{ width: "18rem" }}>
