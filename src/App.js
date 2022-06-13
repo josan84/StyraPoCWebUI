@@ -1,27 +1,34 @@
 import "./App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { loginRequest, myService } from "./auth/msalConfig";
 import { useMsal } from "@azure/msal-react";
+import { useState } from "react";
 
 export default function App() {
   const { instance, accounts } = useMsal();
+  const [freePortfoliosData, setFreePortfoliosData] = useState([]);
+  const [portfoliosData, setPortfoliosData] = useState([]);
 
   const request = {
     ...loginRequest,
     account: accounts[0],
   };
 
-  const getWeatherData = () => {
-    const callGetWeather = () => {
-      const fetchWeatherEndpoint = async () =>
-        await fetch(myService.myWeatherEndpoint);
-      fetchWeatherEndpoint()
+  const getFreePortfoliosData = () => {
+    const callGetFreePortfolios = () => {
+      const fetchFreePortfoliosEndpoint = async () =>
+        await fetch(myService.myFreePortfoliosEndpoint);
+        fetchFreePortfoliosEndpoint()
         .then((response) => response.json())
-        .then((data) => console.log(data[0].date));
+        .then((data) => 
+        {
+          //console.log(data[0].date);
+          setFreePortfoliosData(data.toString().split(","));
+        });
     };
 
-    callGetWeather();
+    callGetFreePortfolios();
   };
 
   const getPortfoliosData = () => {
@@ -40,7 +47,11 @@ export default function App() {
         await fetch(myService.myPortfolioEndpoint, options);
       fetchPortfoliosEndpoint()
         .then((response) => response.json())
-        .then((data) => console.log(data[0].date));
+        .then((data) => 
+        {
+          //console.log(data[0].date);
+          setPortfoliosData(data.toString().split(","));
+        });
     };
 
     instance
@@ -63,14 +74,14 @@ export default function App() {
       <Row xs={1} md={4} className="g-4">
         <Col>
           <Card border="primary" style={{ width: "18rem" }}>
-            <Card.Header>Weather</Card.Header>
+            <Card.Header>Free Portfolios</Card.Header>
             <Card.Body>
               <Button
                 variant="primary"
                 as="input"
                 type="button"
-                value="Get Weather data"
-                onClick={getWeatherData}
+                value="Get Free Portfolios"
+                onClick={getFreePortfoliosData}
               ></Button>
             </Card.Body>
           </Card>
@@ -136,6 +147,59 @@ export default function App() {
         <Col></Col>
       </Row>
       </div>
+      <br/>
+   
+      <Row xs={1} md={4} className="g-4">
+        <Col>
+          <Card border="primary" style={{ width: "18rem" }}>
+            <Card.Header>Free Portfolios</Card.Header>
+            <Card.Body>
+               {freePortfoliosData.map(item => (
+                  <Row>
+                     <Form.Group>                    
+                        <Form.Label>{item}</Form.Label>
+                    </Form.Group>
+                  </Row>
+                  ))
+                }
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card border="primary" style={{ width: "18rem" }}>
+            <Card.Header>Portfolios</Card.Header>
+            <Card.Body>
+              {portfoliosData.map(item => (
+                    <Row>
+                      <Form.Group>                    
+                          <Form.Label>{item}</Form.Label>
+                      </Form.Group>
+                    </Row>
+                    ))
+                  }
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col>
+          <Card border="primary" style={{ width: "18rem" }}>
+            <Card.Header>Positions</Card.Header>
+            <Card.Body>
+            <Form.Group>
+              <Row>
+               
+              </Row>
+             </Form.Group>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col></Col>
+      </Row>
+
     </div>
+
+
   );
 }

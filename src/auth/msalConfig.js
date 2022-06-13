@@ -17,11 +17,13 @@ export const loginRequest ={
 }
 
 export const myService = {
-    myWeatherEndpoint: window.location.href.indexOf("localhost") >= 0 ? 
-                            "https://localhost:7135/WeatherForecast" :
-                            "https://opastyrawebapi-appservice.azurewebsites.net/WeatherForecast"
+    myFreePortfoliosEndpoint:
+                           // "http://localhost:7135/freeportfolios" 
+                            //"https://opastyrawebapi-appservice.azurewebsites.net/freeportfolios"
+                            "http://20.228.234.252:8083/freeportfolios"
                             ,
-    myPortfolioEndpoint: window.location.href.indexOf("localhost") >= 0 ? 
-                            "https://localhost:7135/portfolios" :
-                            "https://opastyrawebapi-appservice.azurewebsites.net/portfolios"
+    myPortfolioEndpoint: 
+                         // "https://localhost:7135/portfolios" :
+                           // "https://opastyrawebapi-appservice.azurewebsites.net/portfolios"
+                           "http://20.228.234.252:8083/portfolios"
 }
